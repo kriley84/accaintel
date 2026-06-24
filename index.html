@@ -236,10 +236,8 @@ async function loadAll() {
   hide('err-box');
   hide('main');
   try {
-    let rawFixtures = await get('/fixtures?league='+PL_ID+'&season='+SEASON+'&status=NS&next=10');
-    if (!rawFixtures.length) {
-      rawFixtures = await get('/fixtures?league='+PL_ID+'&season='+(SEASON-1)+'&status=FT&last=10');
-    }
+    let rawFixtures = await get('/fixtures?league=39&season=2025&status=FT&last=10');
+    
     const standResp = await get('/standings?league='+PL_ID+'&season='+SEASON);
     const table = standResp?.[0]?.league?.standings?.[0] || [];
     S.standings = table;
