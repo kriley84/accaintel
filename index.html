@@ -200,7 +200,7 @@
   </div>
 </div>
 <script>
-const API_ROOT = 'https://v3.football.api-sports.io';
+const API_ROOT = '/.netlify/functions/api';
 const PL_ID   = 39;
 const SEASON  = 2026;
 let S = {
@@ -222,7 +222,7 @@ function resetKey() {
   hide('main');
 }
 async function get(path) {
-  const url = 'https://corsproxy.io/?url=' + encodeURIComponent(API_ROOT + path);
+  coconst url = API_ROOT + '?path=' + encodeURIComponent(path);
   const r = await fetch(url, { headers: { 'x-apisports-key': S.key } });
   if (r.status === 401 || r.status === 403) throw new Error('Invalid API key.');
   if (r.status === 429) throw new Error('Rate limit reached. Try again tomorrow.');
